@@ -1,4 +1,5 @@
 *.o
 *.ali
 *~
+b~*
 dhondt_calculator
