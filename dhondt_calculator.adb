@@ -1,4 +1,5 @@
 with Ada.Containers.Indefinite_Ordered_Maps;
+with Ada.Characters.Handling;
 with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Dhondt_Calculator is
@@ -37,6 +38,8 @@ Get_Party_Data :
          declare
             Line : constant String := Get_Line;
             Next_After_Name : Positive;
+            function Is_White_Space (Ch : Character) return Boolean
+            is (Ch = ' ' or else not Ada.Characters.Handling.Is_Graphic (Ch));
          begin
             if Line'Length > 0
               and then (Line (Line'First) /= ' '
@@ -45,7 +48,7 @@ Get_Party_Data :
             then
             Find_Name :
                for J in Line'Range loop
-                  if Line (J) = ' ' then
+                  if Is_White_Space ((Line (J))) then
                      Next_After_Name := J;
                      exit Find_Name;
                   end if;
