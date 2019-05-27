@@ -64,6 +64,7 @@ Get_Party_Data :
       end;
    end loop Get_Party_Data;
 
+Calculate:
    for Round in 1 .. Number_Of_Seats loop
       declare
          Highest_Polling_This_Round : Float := 0.0;
@@ -87,7 +88,7 @@ Get_Party_Data :
            Parties (Winner).Number_Of_Seats + 1;
          Put_Line ("Winner of round" & Round'Image & " is " & Key (Winner));
       end;
-   end loop;
+   end loop Calculate;
 
    New_Line;
 
