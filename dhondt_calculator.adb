@@ -86,7 +86,8 @@ Calculate:
          end loop;
          Parties (Winner).Number_Of_Seats :=
            Parties (Winner).Number_Of_Seats + 1;
-         Put_Line ("Winner of round" & Round'Image & " is " & Key (Winner));
+         Put_Line (Standard_Error,
+                   "Winner of round" & Round'Image & " is " & Key (Winner));
       end;
    end loop Calculate;
 
